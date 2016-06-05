@@ -1,0 +1,13 @@
+﻿The default logon did not work, kept reporting invalid login at the user screen
+Instead of asking for email change the logon based on name and password
+
+Changes were made to 
+1) AccountViewModel.cs - LoginViewModel to include UserName instead of Email
+2) Login view was updated
+3) Account controller method 
+		public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
+		
+		this line was refering to email instead of UserName
+		var result = await SignInManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, shouldLockout: false);
+
+Look at the Migrations/ApplicationDbContext seed method for password and usernames

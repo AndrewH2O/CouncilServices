@@ -1,0 +1,25 @@
+﻿There are two db contexts
+
+CustomersDb
+ApplicationDbContext
+
+
+specify -ContextTypeName
+
+enable-migrations -ContextTypeName "ApplicationDbContext" -MigrationsDirectory Migrations\ApplicationDbContext
+
+set AutomaticMigrationsEnabled = true; in ApplicationDbContext migrations configuartion - avoids adding a migration as a separate step
+
+on update - package manager:
+update-database -ConfigurationTypeName CouncilServices.Migrations.ApplicationDbContext.Configuration
+Specify the '-Verbose' flag to view the SQL statements being applied to the target database.
+No pending explicit migrations.
+Unable to update database to match the current model because there are pending changes and automatic migration is disabled. Either write the pending model changes to a code-based migration or enable automatic migration. Set DbMigrationsConfiguration.AutomaticMigrationsEnabled to true to enable automatic migration.
+You can use the Add-Migration command to write the pending model changes to a code-based migration.
+
+PM> update-database -ConfigurationTypeName CouncilServices.Migrations.ApplicationDbContext.Configuration
+Specify the '-Verbose' flag to view the SQL statements being applied to the target database.
+No pending explicit migrations.
+Applying automatic migration: 201606042309451_AutomaticMigration.
+Running Seed method.
+PM> 
