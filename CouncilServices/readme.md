@@ -4,9 +4,9 @@ ASP.NET MVC 5 App
 
 * Uses a dynamic form which changes the fields to be completed based on a drop down selection.
 
-* Both client and server side validation are used
+* Both client and server side validation are used.
 
-* The model implements business rule validation using the IValidatableObject contract
+* The model implements business rule validation using the IValidatableObject contract.
 
 * Edit/Update/Delete operations on the Customers Index listing is only visible to users in the 'admins' role.
 
