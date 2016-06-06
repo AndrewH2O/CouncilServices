@@ -2,6 +2,9 @@
 
 ASP.NET MVC 5 App
 
+Customers can request a service, queued services can be viewed and admins can amend the details.
+
+
 * Uses a dynamic form which changes the fields to be completed based on a drop down selection.
 
 * Both client and server side validation are used.

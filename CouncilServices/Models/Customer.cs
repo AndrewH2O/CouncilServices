@@ -57,7 +57,7 @@ namespace CouncilServices.Models
         public string Organisation { get; set; }
 
         //"General date short time" format specifier
-        [Display(Name = "Queued At:")]
+        [Display(Name = "Queued At")]
         [DataType(DataType.DateTime), DisplayFormat(DataFormatString = "{0:g}")]
         public DateTime QueuedAt { get; set; }
 

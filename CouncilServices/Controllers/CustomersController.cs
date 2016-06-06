@@ -17,7 +17,12 @@ namespace CouncilServices.Controllers
         // GET: Customers
         public ActionResult Index()
         {
-            return View(db.Customers.ToList());
+            var vm = new CustomerListVM
+            {
+                Customers = db.Customers.ToList(),
+                IsAdmin = User.IsInRole("admin")
+            };
+            return View(vm);
         }
 
         // GET: Customers/Details/5

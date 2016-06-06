@@ -1,4 +1,4 @@
-﻿@model IEnumerable<CouncilServices.Models.Customer>
+﻿@model CouncilServices.Models.CustomerListVM
 
 @{
     ViewBag.Title = "Queued Service Requests";
@@ -12,30 +12,30 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Service)
+            @Html.DisplayNameFor(model => model.CustomerHeadings.Service)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CustomerType)
+            @Html.DisplayNameFor(model => model.CustomerHeadings.CustomerType)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Title)
+            @Html.DisplayNameFor(model => model.CustomerHeadings.Title)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FirstName)
+            @Html.DisplayNameFor(model => model.CustomerHeadings.FirstName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.LastName)
+            @Html.DisplayNameFor(model => model.CustomerHeadings.LastName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Organisation)
+            @Html.DisplayNameFor(model => model.CustomerHeadings.Organisation)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.QueuedAt)
+            @Html.DisplayNameFor(model => model.CustomerHeadings.QueuedAt)
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model.Customers) {
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Service)
@@ -58,7 +58,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.QueuedAt)
         </td>
-        @if (User.IsInRole("admin"))
+        @if (Model.IsAdmin)
         {
         <td>
             @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |

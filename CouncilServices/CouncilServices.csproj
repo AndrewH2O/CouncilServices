@@ -191,6 +191,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationRoleManager.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\CustomerListVM.cs" />
     <Compile Include="Models\CustomersDb.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
