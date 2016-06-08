@@ -15,13 +15,18 @@ namespace CouncilServices.Controllers
         private CustomersDb db = new CustomersDb();
 
         // GET: Customers
-        public ActionResult Index()
+        public ActionResult Index(string sortBy, string sortOrder, string page)
         {
-            var vm = new CustomerListVM
-            {
-                Customers = db.Customers.ToList(),
-                IsAdmin = User.IsInRole("admin")
-            };
+            var customers = db.Customers;
+            var isAdmin = User.IsInRole("admin");
+
+            var vm = new CustomersSortPageVM(customers, isAdmin, sortBy, sortOrder, page);
+
+            //var vm = new CustomerListVM
+            //{
+            //    Customers = db.Customers.ToList(),
+            //    IsAdmin = User.IsInRole("admin")
+            //};
             return View(vm);
         }
 

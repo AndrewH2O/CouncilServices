@@ -1,4 +1,4 @@
-﻿@model CouncilServices.Models.CustomerListVM
+﻿@model CouncilServices.Models.CustomersSortPageVM
 
 @{
     ViewBag.Title = "Queued Service Requests";
@@ -12,10 +12,22 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.CustomerHeadings.Service)
+            @Html.ActionLink("Service", "Index", new
+            {
+                sortBy = Model.Service,
+                sortOrder = Model.SortOrder,
+                page = Model.Page
+            })
+            @*@Html.DisplayNameFor(model => model.CustomerHeadings.Service)*@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CustomerHeadings.CustomerType)
+            @Html.ActionLink("CustomerType", "Index", new
+            {
+                sortBy = Model.CustomerType,
+                sortOrder = Model.SortOrder,
+                page = Model.Page
+            })
+            @*@Html.DisplayNameFor(model => model.CustomerHeadings.CustomerType)*@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.CustomerHeadings.Title)
@@ -30,7 +42,13 @@
             @Html.DisplayNameFor(model => model.CustomerHeadings.Organisation)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CustomerHeadings.QueuedAt)
+            @Html.ActionLink("QueuedAt", "Index", new
+            {
+                sortBy = Model.QueuedAt,
+                sortOrder = Model.SortOrder,
+                page = Model.Page
+            })
+            @*@Html.DisplayNameFor(model => model.CustomerHeadings.QueuedAt)*@
         </th>
         <th></th>
     </tr>
@@ -70,3 +88,17 @@
 }
 
 </table>
+
+<ul class="pagination">
+    @for (int i = 1; i <= Model.TotalPages; i++)
+    {
+        <li class="@(i==Model.Page?"active":"pagination")">
+            @Html.ActionLink(i.ToString() + " ", "Index", new
+       {
+           sortBy = Model.SortBy,
+           sortOrder = Model.SortOrderPage,
+           page = i
+       })
+        </li>
+    }
+</ul>
