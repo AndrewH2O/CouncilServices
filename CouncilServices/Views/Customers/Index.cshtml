@@ -12,6 +12,16 @@
 <table class="table">
     <tr>
         <th>
+            @Html.ActionLink("Queued At", "Index", new
+            {
+                sortBy = Model.QueuedAt,
+                sortOrder = Model.SortOrder,
+                page = Model.Page
+            })
+            @*@Html.DisplayNameFor(model => model.CustomerHeadings.QueuedAt)*@
+        </th>
+
+        <th>
             @Html.ActionLink("Service", "Index", new
             {
                 sortBy = Model.Service,
@@ -21,7 +31,7 @@
             @*@Html.DisplayNameFor(model => model.CustomerHeadings.Service)*@
         </th>
         <th>
-            @Html.ActionLink("CustomerType", "Index", new
+            @Html.ActionLink("Customer Type", "Index", new
             {
                 sortBy = Model.CustomerType,
                 sortOrder = Model.SortOrder,
@@ -41,20 +51,15 @@
         <th>
             @Html.DisplayNameFor(model => model.CustomerHeadings.Organisation)
         </th>
-        <th>
-            @Html.ActionLink("QueuedAt", "Index", new
-            {
-                sortBy = Model.QueuedAt,
-                sortOrder = Model.SortOrder,
-                page = Model.Page
-            })
-            @*@Html.DisplayNameFor(model => model.CustomerHeadings.QueuedAt)*@
-        </th>
+        
         <th></th>
     </tr>
 
 @foreach (var item in Model.Customers) {
     <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.QueuedAt)
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.Service)
         </td>
@@ -73,9 +78,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.Organisation)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.QueuedAt)
-        </td>
+        
         @if (Model.IsAdmin)
         {
         <td>
