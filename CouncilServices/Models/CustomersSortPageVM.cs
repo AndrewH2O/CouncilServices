@@ -127,8 +127,8 @@ namespace CouncilServices.Models
             sortByDefault = this.QueuedAt;
             this.Customers = customers;
             if (sortBy == QueuedAt) SortByFn = s => s.QueuedAt;
-            else if (sortBy == Service) SortByFn = s => s.Service;
-            else if (sortBy == CustomerType) SortByFn = s => s.CustomerType;
+            else if (sortBy == Service) SortByFn = s => s.Service.ToString();
+            else if (sortBy == CustomerType) SortByFn = s => s.CustomerType.ToString();
             else { SortByFn = s => s.QueuedAt; }
 
             updateSorting();
