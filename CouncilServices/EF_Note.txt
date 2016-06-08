@@ -3,6 +3,9 @@
 CustomersDb
 ApplicationDbContext
 
+may need to update database
+update-database -ConfigurationTypeName CouncilServices.Migrations.ApplicationDbContext.Configuration
+update-database -ConfigurationTypeName CouncilServices.Models.CustomersDb.Configuartion
 
 specify -ContextTypeName
 
