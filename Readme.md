@@ -1,6 +1,4 @@
-# Readme.md
-
-ASP.NET MVC 5 App
+# ASP.NET MVC 5 App
 
 Customers can request a service, queued services can be viewed and admins can amend the details.
 
