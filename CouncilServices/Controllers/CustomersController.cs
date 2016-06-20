@@ -10,11 +10,13 @@ using CouncilServices.Models;
 
 namespace CouncilServices.Controllers
 {
+    [Authorize(Roles ="admin")]
     public class CustomersController : Controller
     {
         private CustomersDb db = new CustomersDb();
 
         // GET: Customers
+        [AllowAnonymous()]
         public ActionResult Index(string sortBy, string sortOrder, string page)
         {
             var customers = db.Customers;
