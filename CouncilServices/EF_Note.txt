@@ -5,7 +5,7 @@ ApplicationDbContext
 
 may need to update database
 update-database -ConfigurationTypeName CouncilServices.Migrations.ApplicationDbContext.Configuration
-update-database -ConfigurationTypeName CouncilServices.Models.CustomersDb.Configuartion
+update-database -ConfigurationTypeName CouncilServices.Migrations.Configuration
 
 specify -ContextTypeName
 

@@ -93,7 +93,7 @@ namespace CouncilServices.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,CustomerType,Title,FirstName,LastName,Organisation")] Customer customer)
+        public ActionResult Edit([Bind(Include = "Id,Service,CustomerType,Title,FirstName,LastName,Organisation,QueuedAt")] Customer customer)
         {
             if (ModelState.IsValid)
             {
