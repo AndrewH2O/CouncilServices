@@ -48,6 +48,7 @@ namespace CouncilServices.Controllers
         }
 
         // GET: Customers/Create
+        [AllowAnonymous()]
         public ActionResult Create()
         {
             return View();
@@ -57,6 +58,7 @@ namespace CouncilServices.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [AllowAnonymous()]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Service,CustomerType,Title,FirstName,LastName,Organisation")] Customer customer)
         {
